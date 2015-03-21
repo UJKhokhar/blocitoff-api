@@ -1,4 +1,4 @@
 <div id=<%="item-#{item.id}"%> class="item">
-  <%= item.name %>
-  <%= link_to '', user_item_path(@user.id, item.id), method: :delete, class: 'glyphicon glyphicon-ok', remote: true %> <br/>
+  <%= item.name %> <p><%= time_left(item) %></p>
+  <%= link_to '', user_item_path(@user.id, item.id), method: :delete, class: 'glyphicon glyphicon-ok', remote: true %> 
 </div>
