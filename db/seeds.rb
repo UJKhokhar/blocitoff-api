@@ -1,6 +1,6 @@
 require 'faker'
 
-#Create Users
+# Create Users
 5.times do
   user = User.create!(
     name: Faker::Name.name,
@@ -10,10 +10,20 @@ require 'faker'
   user.skip_confirmation!
   user.save!
 end
+
+umar = User.create!(
+  name: 'Umar Khokhar',
+  email: 'ujkhokhar@gmail.com',
+  password: 'helloworld'
+)
+
+umar.skip_confirmation!
+umar.save!
+
 users = User.all
 puts "#{User.count} users created"
 
-#Create items
+# Create items
 25.times do
   Item.create!(
     user: users.sample,

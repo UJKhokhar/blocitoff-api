@@ -1,3 +1,7 @@
 <h1>Welcome <%= @user.email %></h1>
-<%= render @items %>
-<%= render partial: 'items/form', locals: {user: @user} %>
+<div id="items" class='items'>
+  <%= render @items %>
+</div>
+<div class='col-md-6'>
+  <%= render partial: 'items/form', locals: {user: @user} %>
+</div>
