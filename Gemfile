@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.8'
+gem 'rails', '4.2.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -48,7 +48,7 @@ gem 'devise'
 gem 'faker'
 
 group :production do
-  gem 'pg'
+  gem 'pg', '0.18.1'
   gem 'rails_12factor'
 end
 
