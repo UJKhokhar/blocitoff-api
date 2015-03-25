@@ -13,7 +13,7 @@ class Api::ItemsController < Api::ApiController
   end
 
   def create
-    item = Item.create(params.require(:item).permit(:name))
+    item = Item.create(item_params)
     creation_confirmation = "Item created."
     if item.save  
       render json: item
@@ -26,5 +26,18 @@ class Api::ItemsController < Api::ApiController
     destroy_confirmation = "Item destroyed."
 
     render json: destroy_confirmation
+  end
+
+  def update
+    item = Item.find(params[:id])
+    if item.update_attributes(item_params)
+      render json: item
+    end
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name)
   end
 end
