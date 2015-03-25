@@ -1,7 +1,7 @@
 Blocitoff::Application.routes.draw do
   
   namespace :api do
-    resources :user do
+    resources :users do
       resources :items
     end
   end
