@@ -1,4 +1,6 @@
 class Api::ItemsController < Api::ApiController
+  before_action :authenticate
+
   def index
     user = User.find(params[:user_id])
     items = user.items
@@ -38,5 +40,13 @@ class Api::ItemsController < Api::ApiController
 
   def item_params
     params.require(:item).permit(:name)
+  end
+
+  protected
+  
+  def authenticate
+    authenticate_or_request_with_http_token do |token, options|
+      User.find_by(auth_token: token)
+    end
   end
 end
