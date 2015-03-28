@@ -66,3 +66,7 @@ group :development, :test do
 end
 
 gem 'whenever'
+
+gem "active_model_serializers", github: "rails-api/active_model_serializers", branch: "master"
+
+gem 'rest-client'
