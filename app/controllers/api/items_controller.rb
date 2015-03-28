@@ -13,9 +13,9 @@ class Api::ItemsController < Api::ApiController
   end
 
   def create
-    item = Item.create(item_params)
-    creation_confirmation = "Item created."
-    if item.save  
+    user = User.find(params[:user_id])
+    item = user.items.build(item_params)
+    if item.save
       render json: item
     end
   end
@@ -23,7 +23,6 @@ class Api::ItemsController < Api::ApiController
   def destroy
     item = Item.find(params[:id])
     item.destroy
-    destroy_confirmation = "Item destroyed."
 
     render json: destroy_confirmation
   end
