@@ -7,13 +7,15 @@ class User < ActiveRecord::Base
 
   has_many :items
 
-  private 
+  private
+
     def set_auth_token
       return if auth_token.present?
-      self.auth_token = generated_auth_token
+      self.auth_token = generate_auth_token
     end
 
     def generate_auth_token
       SecureRandom.uuid.gsub(/\-/, '')
     end
+
 end
