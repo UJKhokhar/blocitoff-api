@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328230023) do
+ActiveRecord::Schema.define(version: 20150330065549) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20150328230023) do
     t.string   "auth_token",             default: ""
   end
 
-  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
