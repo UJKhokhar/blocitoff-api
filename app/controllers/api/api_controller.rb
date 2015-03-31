@@ -1,7 +1,5 @@
 class Api::ApiController < ActionController::Base
   before_action :authenticate
-
-  @current_user = User.find_by(auth_token: token)
   
   protected
   
