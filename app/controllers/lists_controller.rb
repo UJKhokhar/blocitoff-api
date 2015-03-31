@@ -1,4 +1,4 @@
-class ListsController < ApplicationController
+class Api::ListsController < Api::ApiController
 
   def index
     lists = @current_user.lists
