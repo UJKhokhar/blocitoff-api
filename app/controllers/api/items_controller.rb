@@ -1,33 +1,38 @@
 class Api::ItemsController < Api::ApiController
 
   def index
-    items = @current_user.items
+    list = List.find(params[:list_id])
+    items = list.items
 
     render json: items 
   end
 
   def show
-    item = Item.find(params[:id])  
+    list = List.find(params[:list_id])
+    item = list.items.find(params[:id])  
 
     render json: item
   end
 
   def create
-    item = @current_user.items.build(item_params)
+    list = List.find(params[:list_id])
+    item = list.items.build(item_params)
     if item.save
       render json: item
     end
   end
 
   def destroy
-    item = Item.find(params[:id])
+    list = List.find(params[:list_id])
+    item = list.items.find(params[:id])
     item.destroy
 
     render json: destroy_confirmation
   end
 
   def update
-    item = Item.find(params[:id])
+    list = List.find(params[:list_id])
+    item = list.items.find(params[:id])
     if item.update_attributes(item_params)
       render json: item
     end
