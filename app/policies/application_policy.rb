@@ -1,6 +1,19 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  class Scope
+    attr_reader :user, :scope
+
+    def initialize(user, scope)
+      @user = user
+      @scope = scope
+    end
+
+    def resolve
+      scope.all
+    end
+  end
+
   def initialize(user, record)
     @user = user
     @record = record
@@ -11,11 +24,11 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    record_exists?
   end
 
   def create?
-    false
+    user_exists?
   end
 
   def new?
@@ -23,7 +36,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    record_owned_by_user?
   end
 
   def edit?
@@ -31,24 +44,24 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    update?
   end
 
   def scope
-    Pundit.policy_scope!(user, record.class)
+    record.class
   end
 
-  class Scope
-    attr_reader :user, :scope
+  # --------------------------- Utility methods --------------------------------
 
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope
-    end
+  def record_owned_by_user?
+    return false if record_user.nil?
+    return false unless user_exists?
+    record.user == user
   end
+
+  def user_exists?
+    user.present?
+  end
+
 end
 
