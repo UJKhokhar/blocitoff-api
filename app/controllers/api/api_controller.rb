@@ -1,5 +1,6 @@
 class Api::ApiController < ActionController::Base
   before_action :authenticate
+  attr_reader :current_user
 
   protected
   
@@ -9,7 +10,7 @@ class Api::ApiController < ActionController::Base
 
   def authenticate_token
     authenticate_with_http_token do |token, option|
-      User.find_by(auth_token: token)
+      @current_user = User.find_by(auth_token: token)
     end
   end
 

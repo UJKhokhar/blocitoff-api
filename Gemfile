@@ -70,3 +70,5 @@ gem 'whenever'
 gem "active_model_serializers", github: "rails-api/active_model_serializers", branch: "master"
 
 gem 'rest-client'
+
+gem 'pundit'

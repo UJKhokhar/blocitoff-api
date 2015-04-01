@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :user
+  belongs_to :list
 
   def expired?
     remaining = (created_at - 7.days.ago).ceil
