@@ -2,4 +2,7 @@
 
 Self-destructing to do list.
 
-Created by Umar.
+Fetching items for a user:
+```
+curl -v "http://localhost:3000/api/lists/:list_id/items" -H 'Authorization: Token token="TOKENHERE"'
+```
