@@ -72,3 +72,5 @@ gem "active_model_serializers", github: "rails-api/active_model_serializers", br
 gem 'rest-client'
 
 gem 'pundit'
+
+gem 'rack-cors', require: 'rack/cors'

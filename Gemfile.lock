@@ -118,6 +118,7 @@ GEM
     pundit (0.3.0)
       activesupport (>= 3.0.0)
     rack (1.6.0)
+    rack-cors (0.3.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
@@ -230,6 +231,7 @@ DEPENDENCIES
   jquery-rails
   pg (= 0.18.1)
   pundit
+  rack-cors
   rails (= 4.2.0)
   rails_12factor
   rest-client
