@@ -38,6 +38,9 @@ class Api::ItemsController < Api::ApiController
     end
   end
 
+  def options
+  end
+
   private
 
   def item_params
