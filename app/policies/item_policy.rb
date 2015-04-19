@@ -1,0 +1,3 @@
+class ItemPolicy < ListPolicy
+
+end
