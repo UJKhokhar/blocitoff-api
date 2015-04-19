@@ -43,8 +43,6 @@ end
 # ADDED GEMS START HERE:
 gem 'bootstrap-sass'
 
-gem 'devise'
-
 gem 'faker'
 
 group :production do
