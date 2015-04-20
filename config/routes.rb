@@ -4,7 +4,7 @@ Blocitoff::Application.routes.draw do
 
     resources :lists do
       resources :items
-      match '/items', to: 'items#options', via: [:options] 
+      # match '/items', to: 'items#options', via: [:options] 
     end
   end
 end
