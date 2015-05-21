@@ -28,7 +28,9 @@ class Api::ListsController < Api::ApiController
 
   def destroy
     list = List.find(params[:id])
-    list.destroy
+    if list.destroy
+      head :ok
+    end
   end
 
   private
